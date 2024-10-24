@@ -1,34 +1,3 @@
-/*body {
-    background-image: url(../img/halloweencalabazas.gif);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-    color: aliceblue;
-    margin: 0;
-    padding: 0;
-    height: 100vh; /* Para que ocupe el 100% del alto de la pantalla 
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-h1, h2, p {
-    margin: 0;
-    padding: 10px;  Puedes ajustar el padding si es necesario 
-    text-align: center;  Para centrar el texto 
-}
-
-@media (max-width: 768px) {
-    body {
-        font-size: 14px;
-    }
-
-    h1, h2, p {
-        padding: 5px;
-    }
-}
-*/
 body {
     background-image: url(../img/halloweencalabazas.gif);
     background-repeat: no-repeat;
@@ -76,6 +45,50 @@ img:hover {
     transform: scale(1.05); /* Efecto de zoom al pasar sobre la imagen */
 }
 
+/* Modal */
+.modal {
+    display: none; /* Ocultar inicialmente */
+    position: fixed;
+    z-index: 1;
+    padding-top: 60px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.9); /* Fondo oscuro */
+}
+
+.modal-content {
+    margin: auto;
+    display: block;
+    width: 30%; /* Ajuste del tamaño para pantalla grande */
+    max-width: 700px;
+    max-height: 80vh; /* Mantener altura máxima en el 85% de la altura del viewport */
+}
+
+#caption {
+    text-align: center;
+    color: #fff;
+    margin-top: 10px;
+}
+
+/* Estilo del botón de cierre */
+.close {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: #fff;
+    font-size: 40px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #f00;
+    cursor: pointer;
+}
+
 /* Estilos responsivos */
 @media (max-width: 768px) {
     body {
@@ -88,5 +101,10 @@ img:hover {
 
     img {
         width: 90%;
+    }
+
+    .modal-content {
+        width: 95%; /* Para que ocupe más espacio en dispositivos móviles */
+        max-width: none;
     }
 }
