@@ -1,53 +1,73 @@
+/* Estilo para todo el cuerpo */
 body {
-    background-image: url(../img/halloweencalabazas.gif);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-    color: aliceblue;
     margin: 0;
     padding: 0;
-    height: 100vh;
+    background-image: url(../img/halloweencalabazas.gif);
+    background-size: cover;
+    background-attachment: fixed;
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
-}
-
-h1, h2, p {
-    margin: 0;
-    padding: 10px;
+    height: 100vh;
+    font-family: 'Creepster', cursive;
+    color: #fff;
     text-align: center;
-    text-shadow: 2px 2px 4px #000;
+    position: relative;
 }
 
-h1 {
-    font-size: 3em;
-    color: #ff6347;
+/* Contenedor general */
+.container {
+    background-color: rgba(0, 0, 0, 0.7); /* Fondo semi-transparente */
+    padding: 10px;
+    border-radius: 15px;
+    box-shadow: 0 0 30px rgba(255, 0, 0, 0.7); /* Efecto de luz roja */
 }
 
-h2 {
-    font-size: 2em;
+/* Título principal */
+.main-title {
+    font-size: 4em;
+    text-shadow: 5px 5px 10px #ff0000; /* Sombra roja espeluznante */
+    animation: flicker 1.5s infinite alternate;
+}
+
+/* Subtítulo */
+.sub-title {
+    font-size: 2.5em;
     color: #ffeb3b;
 }
 
-p {
-    font-size: 1.2em;
-    color: aliceblue;
+/* Efecto de parpadeo para el título */
+@keyframes flicker {
+    0% { opacity: 1; }
+    50% { opacity: 0.7; }
+    100% { opacity: 0.2; }
 }
 
-img {
-    border: 3px solid #ffeb3b;
-    box-shadow: 0px 0px 15px 5px #000;
-    transition: transform 0.2s; /* Animación suave al hacer hover */
+/* Botón de inicio */
+.start-btn {
+    font-size: 1.5em;
+    padding: 15px 30px;
+    background-color: #e5533c;
+    border: none;
+    border-radius: 10px;
+    color: #fff;
+    cursor: pointer;
+    transition: transform 0.3s, background-color 0.4s;
+    font-family: 'Creepster', cursive;
 }
 
-img:hover {
-    transform: scale(1.05); /* Efecto de zoom al pasar sobre la imagen */
+.start-btn:hover {
+    transform: scale(1.2);
+    background-color: #ff6347;
 }
 
-/* Modal */
+.game-instructions {
+    font-size: 30px;
+}
+
+/* Modal (para imagen ampliada) */
 .modal {
-    display: none; /* Ocultar inicialmente */
+    display: none;
     position: fixed;
     z-index: 1;
     padding-top: 60px;
@@ -55,28 +75,21 @@ img:hover {
     top: 0;
     width: 100%;
     height: 100%;
-    overflow: auto;
-    background-color: rgba(0,0,0,0.9); /* Fondo oscuro */
+    background-color: rgba(0,0,0,0.8);
 }
 
 .modal-content {
     margin: auto;
     display: block;
-    width: 30%; /* Ajuste del tamaño para pantalla grande */
-    max-width: 700px;
-    max-height: 80vh; /* Mantener altura máxima en el 85% de la altura del viewport */
+    width: 25%; /* Ajuste del tamaño de la imagen */
+    max-width: 600px; /* Se ajusta para evitar que sea muy grande */
+    height: auto;
+    border-radius: 10px; /* Bordes redondeados para la imagen */
 }
 
-#caption {
-    text-align: center;
-    color: #fff;
-    margin-top: 10px;
-}
-
-/* Estilo del botón de cierre */
 .close {
     position: absolute;
-    top: 15px;
+    top: 20px;
     right: 35px;
     color: #fff;
     font-size: 40px;
@@ -89,14 +102,21 @@ img:hover {
     cursor: pointer;
 }
 
+#caption {
+    font-size: 25px; /* Ajusta este valor según sea necesario */
+    color: white;    /* El color que prefieras */
+    text-align: center; /* Puedes centrar el texto si lo deseas */
+    padding: 15px;
+}
+
 /* Estilos responsivos */
 @media (max-width: 768px) {
     body {
-        font-size: 14px;
+        font-size: 12px;
     }
 
     h1, h2, p {
-        padding: 5px;
+        padding: 0px;
     }
 
     img {
@@ -104,7 +124,47 @@ img:hover {
     }
 
     .modal-content {
-        width: 95%; /* Para que ocupe más espacio en dispositivos móviles */
+        width: 80%; /* Para que ocupe más espacio en dispositivos móviles */
         max-width: none;
     }
+
+    .game-instructions {
+        font-size: 20px;
+    }
+
+    .container {
+        background-color: rgba(0, 0, 0, 0.7); /* Fondo semi-transparente */
+        padding: 0px;
+        margin: 20px;
+        border-radius: 15px;
+        box-shadow: 0 0 30px rgba(255, 0, 0, 0.7); /* Efecto de luz roja */
+    }
+
+    .start-btn {
+        font-size: 2em;
+        margin: 15px;
+    }
+    
+}
+
+/* Neblina flotante para todo el body */
+body:before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('../img/niebla.jpg') no-repeat center center fixed;
+    background-size: cover;
+    opacity: 0.2; /* Se ha ajustado la opacidad para ser más sutil */
+    z-index: -1; /* Asegura que esté detrás del contenido */
+    animation: fog 8s infinite;
+}
+
+/* Animación de neblina */
+@keyframes fog {
+    0% { opacity: 0.2; }
+    50% { opacity: 0.4; }
+    100% { opacity: 0.2; }
 }

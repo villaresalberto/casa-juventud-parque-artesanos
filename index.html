@@ -3,48 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Juega o Muere - Prueba 1</title>
+    
+    <!-- Fuentes espeluznantes de Google Fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Creepster&family=Nosifer&display=swap">
+    <!-- Hoja de estilos personalizada -->
     <link rel="stylesheet" href="css/style.css">
+    
+    <!-- Agregar ícono de la página -->
     <link rel="icon" type="image/png" href="img/descarga.png">
-    <title>Prueba 1</title>
-    
 </head>
-
 <body>
-    <h1>Juega o Muere</h1>
+    <!-- Contenedor de la página con efecto de neblina -->
+    <div class="container">
+        <h1 class="main-title">JUEGA O MUERE</h1>
+        <h2 class="sub-title">PRUEBA 1: El Enigma del Parque</h2>
 
-    <h2>Prueba 1</h2>
+        <p class="game-instructions">
+            Solo los valientes pueden pasar al siguiente nivel.<br> Resuelve el enigma y dirígete a donde las luces se apagan, 
+            detrás del cuartel, donde las sombras acechan.
+        </p>
 
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Possimus molestiae provident expedita earum adipisci unde voluptas vero ratione?</p>
+        <!-- Botón que lleva a la imagen en grande -->
+        <button id="startButton" class="start-btn">Descubre el Primer Secreto</button>
 
-    <!-- Imagen clickable que se ampliará -->
-    <img id="myImg" src="img/casadelajuventud.jpg" title="Casa de la Juventud. Detrás del cuartel" alt="En el parque de los artesanos, detrás del cuartel de los civiles" width="300" style="cursor: pointer;">
-    
-    <!-- Modal para pantalla completa -->
-    <div id="myModal" class="modal">
-        <span class="close">&times;</span>
-        <img class="modal-content" title="Casa de la Juventud. Detrás del cuartel" id="img01">
-        <div id="caption"></div>
+        <!-- Imagen modal para la pista -->
+        <div id="myModal" class="modal">
+            <span class="close">&times;</span>
+            <img class="modal-content" id="img01">
+            <div id="caption"></div>
+        </div>
     </div>
 
-    <script>
-        // Capturar elementos del DOM
-        var modal = document.getElementById("myModal");
-        var img = document.getElementById("myImg");
-        var modalImg = document.getElementById("img01");
-        var captionText = document.getElementById("caption");
-        var span = document.getElementsByClassName("close")[0];
+    <!-- Audio de fondo -->
+    <audio id="background-audio" loop>
+        <source src="audio/debussy-clairdelune.mp3" type="audio/mpeg">
+    </audio>
 
-        // Ampliar imagen al hacer clic
-        img.onclick = function(){
-            modal.style.display = "block";
-            modalImg.src = this.src;
-            captionText.innerHTML = this.alt;
-        }
-
-        // Cerrar modal al hacer clic en (x)
-        span.onclick = function() { 
-            modal.style.display = "none";
-        }
-    </script>
+    <!-- Script para interactividad -->
+    <script src="js/script.js"></script>
 </body>
 </html>
+
